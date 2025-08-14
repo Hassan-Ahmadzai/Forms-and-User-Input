@@ -5,7 +5,7 @@ export default function Signup() {
         event.preventDefault();
 
         const fd = new FormData(event.target);
-        const acquisitionChannel = fd.getAll('acquisition');
+        const acquisitionChannel = fd.getAll('acquisition');    
         const data = Object.fromEntries(fd.entries());
         data.acquisition = acquisitionChannel;
         console.log(data);

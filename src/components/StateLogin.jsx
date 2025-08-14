@@ -9,7 +9,8 @@ export default function StateLogin() {
         password: '',
     });
 
-    // const emailIsInvalid = !enteredValues.email.includes('@');
+    const emailIsInvalid = 
+        enteredValues.email !== '' && !enteredValues.email.includes('@');
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -39,11 +40,11 @@ export default function StateLogin() {
                         type="email" 
                         name="email" 
                         value={enteredValues.email}
-                        onChange={(event) => handleInputChange(event.target.value)}
+                        onChange={(event) => handleInputChange('email', event.target.value)}
                     />
 
                     <div className="control-error">
-                        {/* {emailIsInvalid && <p>Please enter a valid email address.</p>} */}
+                        {emailIsInvalid && <p>Please enter a valid email address.</p>}
                     </div>
                 </div>
 
@@ -54,7 +55,7 @@ export default function StateLogin() {
                         type="password" 
                         name="password" 
                         value={enteredValues.password}
-                        onChange={(event) => handleInputChange(event.target.value)}
+                        onChange={(event) => handleInputChange('password', event.target.value)}
                     />
                 </div>
             </div>
