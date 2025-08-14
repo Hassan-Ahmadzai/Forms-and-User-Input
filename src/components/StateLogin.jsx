@@ -9,6 +9,11 @@ export default function StateLogin() {
         password: '',
     });
 
+    const [didEdit, setDidEdit] = useState({
+        email: false,
+        password: false,
+    });
+
     const emailIsInvalid = 
         enteredValues.email !== '' && !enteredValues.email.includes('@');
 
@@ -23,6 +28,15 @@ export default function StateLogin() {
             [identifier]: value,
         }));
     };
+
+    function handleInputBlur(identifier) {
+        setDidEdit((prevEdit) => ({
+            ...prevEdit,
+            [identifier]: true,
+        }));
+    };
+
+
 
     // function handleEmailChange(event) {
     //     setEnteredEmail(event.target.value);
