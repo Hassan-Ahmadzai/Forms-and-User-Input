@@ -11,11 +11,11 @@ export default function StateLogin() {
 
     const [didEdit, setDidEdit] = useState({
         email: false,
-        password: false,
+        // password: false,
     });
 
     const emailIsInvalid = 
-        enteredValues.email !== '' && !enteredValues.email.includes('@');
+        didEdit.email && !enteredValues.email.includes('@');
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -27,6 +27,11 @@ export default function StateLogin() {
             ...prevValues,
             [identifier]: value,
         }));
+
+        setDidEdit((prevEdit) => ({
+            ...prevEdit,
+            [identifier]: false,
+        })); 
     };
 
     function handleInputBlur(identifier) {
@@ -53,6 +58,7 @@ export default function StateLogin() {
                         id="email" 
                         type="email" 
                         name="email" 
+                        onBlur={() => handleInputBlur('email')}
                         value={enteredValues.email}
                         onChange={(event) => handleInputChange('email', event.target.value)}
                     />
