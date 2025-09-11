@@ -10,6 +10,10 @@ function App() {
 
       <Cart />
       <Products />
+
+      
+      <Cart />
+      <Products />
     </Layout>
   );
 }
