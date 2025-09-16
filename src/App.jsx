@@ -15,14 +15,7 @@ function App() {
       { showCart && <Cart /> }
       <Products />
 
-      { showCart && <Cart /> }
-      <Products />
-
-      { showCart && <Cart /> }
-      <Products />
-
-      { showCart && <Cart /> }
-      <Products />
+     
     </Layout>
   );
 }
