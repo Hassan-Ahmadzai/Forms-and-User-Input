@@ -9,12 +9,7 @@ function App() {
   const showCart = useSelector((state) => state.ui.cartIsVisible);
   const cart = useSelector((state) => state.cart);
 
-  useEffect(() => {
-    fetch('https://react-redux-52dcd-default-rtdb.asia-southeast1.firebasedatabase.app/cart.json', {
-      method: 'PUT',
-      body: JSON.stringify(cart),
-    });
-  }, [cart]);
+ 
 
   return (
     <Layout>
